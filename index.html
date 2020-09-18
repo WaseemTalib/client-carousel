@@ -371,7 +371,6 @@
     </form>
   </div>
   <script src="js/bootstrap.min.js"></script>
-  <script src="./js/owl.carousel.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <script>
@@ -380,7 +379,6 @@
       $('.owl-carousel').owlCarousel({
         center: true,
         autoPlay: true,
-        // autoplayTimeout: 5000,
         stagePadding: 50,
         items: 2,
         dots: false,
@@ -391,17 +389,38 @@
 
         responsive: {
           0: {
-            items: 1
+            items: 1,
+            stagePadding: 30,
           },
           600: {
-            items: 1
+            items: 2,
+            stagePadding: 0,
+          },
+          800: {
+            items: 2,
+            stagePadding: 0,
           },
           1000: {
             items: 2
           }
         },
         onInitialized: function () {
-          $('.owl-stage').css('padding-left', '150px')
+          if (window.innerWidth <= 400) {
+            $('.owl-stage').css('padding-left', '0px');
+            
+          }
+          else if (window.innerWidth <= 600) {
+            $('.owl-stage').css('padding-left', '0px');
+            
+          } else if (window <= 800) {
+            
+            $('.owl-stage').css('padding-left', '0px');
+          }else{
+
+            $('.owl-stage').css('padding-left', '150px');
+          }
+
+
           // if ($('.owl-item').first().hasClass('active')) {
           //   $('.owl-prev').hide();
           // }
@@ -411,7 +430,7 @@
         }
       });
     });
-
+    console.log(window.innerWidth)
   </script>
 
   <script type="text/javascript">
