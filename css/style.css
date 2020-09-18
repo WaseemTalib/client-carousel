@@ -4118,15 +4118,23 @@ div#filters ul li {
 .owl-item:last-child{
     display: none
 }
-.arrow-right:hover{
+.both:hover{
+
     background-color: #fff;
 }
-.owl-next:focus{
-    border: 0;
-    outline: 0;
+.both:focus{
+    border: none !important;
+    outline: none !important;
 }
-
+.slider-counter:focus,
+.owl-item:focus{
+    border: none !important;
+    outline: none !important;
+}
 .slider-counter{
     color: rgb(242, 50, 50);
     text-align: center;
+    display: inline;
+    vertical-align: middle;
+    font-size: 30px;
 }

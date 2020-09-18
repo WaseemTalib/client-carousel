@@ -228,7 +228,6 @@
                     </div>
                   </div>
                 </div>
-                <h3 class="slider-counter"></h3>
               </div>
             </div>
         </div>
@@ -381,14 +380,7 @@
 
 
   <script>
-    $('.slider').on('initialized.owl.carousel changed.owl.carousel', function (e) {
-      if (!e.namespace) {
-        return;
-      }
-      var carousel = e.relatedTarget;
-      $('.slider-counter').text(carousel.relative(carousel.current()) + 1 + '/' + carousel.items().length);
-    })
-
+    // $('.owl-nav').append('')
     $(document).ready(function ($) {
       $('.owl-carousel').owlCarousel({
         center: true,
@@ -399,7 +391,12 @@
         loop: true,
         margin: 20,
         nav: true,
-        navText: ['', '<img id="next-slide" class="arrow-right" src="images/slarrow-right.png" alt="next" />'],
+        navText: ['', `
+        <div class="both">
+        <img id="next-slide" class="arrow-right" src="images/slarrow-right.png" alt="next" /> &ensp;
+         <h3 class="slider-counter">1/2</h3>
+        </div>
+         `],
 
         responsive: {
           0: {
@@ -431,6 +428,14 @@
           }
         }
       });
+      
+    $('.slider').on('initialized.owl.carousel changed.owl.carousel', function (e) {
+      if (!e.namespace) {
+        return;
+      }
+      var carousel = e.relatedTarget;
+      $('.slider-counter').text(carousel.relative(carousel.current()) + 1 + '/' + carousel.items().length);
+    })
     });
   </script>
 
