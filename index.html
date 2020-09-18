@@ -226,6 +226,16 @@
                         </div>
                       </div>
                     </div>
+                    <div class="item">
+                      <div class="testi_white_box">
+                        <div class="testi_profile display_table">
+                          <div class="testi_pic table_cel"><img
+                              src="https://thumbs.dreamstime.com/z/close-up-detail-part-black-shiny-car-headlight-mirror-hood-radiator-grille-blurred-outdoor-background-transportation-128377647.jpg"
+                              width="100%" height="300px" alt="lens-img1" class="">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -380,8 +390,15 @@
 
 
   <script>
-    // $('.owl-nav').append('')
     $(document).ready(function ($) {
+
+      $('.slider').on('initialized.owl.carousel changed.owl.carousel', function (e) {
+        if (!e.namespace) {
+          return;
+        }
+        var carousel = e.relatedTarget;
+        $('.slider-counter').text(carousel.relative(carousel.current()) + 1 + '/' + carousel.items().length);
+      })
       $('.owl-carousel').owlCarousel({
         center: true,
         autoPlay: true,
@@ -393,7 +410,7 @@
         nav: true,
         navText: ['', `
         <div class="both">
-          <h3 class="slider-counter">1/2</h3>&ensp;
+          <h3 class="slider-counter">1/4</h3>&ensp;
         <img id="next-slide" class="arrow-right" src="images/slarrow-right.png" alt="next" /> 
         </div>
          `],
@@ -428,14 +445,7 @@
           }
         }
       });
-      
-    $('.slider').on('initialized.owl.carousel changed.owl.carousel', function (e) {
-      if (!e.namespace) {
-        return;
-      }
-      var carousel = e.relatedTarget;
-      $('.slider-counter').text(carousel.relative(carousel.current()) + 1 + '/' + carousel.items().length);
-    })
+
     });
   </script>
 
