@@ -4119,18 +4119,17 @@ div#filters ul li {
     display: none
 }
 .both:hover{
-
     background-color: #fff;
 }
-.both:focus{
-    border: none !important;
-    outline: none !important;
+.owl-next:focus{
+    border: 0;
+    outline: 0;
 }
-.slider-counter:focus,
-.owl-item:focus{
-    border: none !important;
-    outline: none !important;
+.slider-counter:focus{
+    border: 0;
+    outline: 0;
 }
+
 .slider-counter{
     color: rgb(242, 50, 50);
     text-align: center;
