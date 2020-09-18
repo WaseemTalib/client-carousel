@@ -4126,4 +4126,7 @@ div#filters ul li {
     outline: 0;
 }
 
-
+.slider-counter{
+    color: rgb(242, 50, 50);
+    text-align: center;
+}

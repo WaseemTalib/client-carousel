@@ -192,9 +192,9 @@
 
           <section class="home_testimonial">
             <div class="equal_padding">
-              <div class="">
+              <div class="slide">
                 <div class="home_testimonial_slider">
-                  <div class="owl-carousel owl-theme">
+                  <div class="slider owl-carousel owl-theme">
 
                     <div class="item">
                       <div class="testi_white_box">
@@ -228,6 +228,7 @@
                     </div>
                   </div>
                 </div>
+                <h3 class="slider-counter"></h3>
               </div>
             </div>
         </div>
@@ -370,10 +371,23 @@
       <button type="submit" class="btn btn-primary">Search</button>
     </form>
   </div>
+
+
+
+
   <script src="js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
   <script>
+    $('.slider').on('initialized.owl.carousel changed.owl.carousel', function (e) {
+      if (!e.namespace) {
+        return;
+      }
+      var carousel = e.relatedTarget;
+      $('.slider-counter').text(carousel.relative(carousel.current()) + 1 + '/' + carousel.items().length);
+    })
 
     $(document).ready(function ($) {
       $('.owl-carousel').owlCarousel({
@@ -385,7 +399,7 @@
         loop: true,
         margin: 20,
         nav: true,
-        navText: ['', '<img class="arrow-right" src="images/slarrow-right.png" alt="next" />'],
+        navText: ['', '<img id="next-slide" class="arrow-right" src="images/slarrow-right.png" alt="next" />'],
 
         responsive: {
           0: {
@@ -407,30 +421,17 @@
         onInitialized: function () {
           if (window.innerWidth <= 400) {
             $('.owl-stage').css('padding-left', '0px');
-            
           }
           else if (window.innerWidth <= 600) {
             $('.owl-stage').css('padding-left', '0px');
-            
           } else if (window <= 800) {
-            
             $('.owl-stage').css('padding-left', '0px');
-          }else{
-
+          } else {
             $('.owl-stage').css('padding-left', '150px');
           }
-
-
-          // if ($('.owl-item').first().hasClass('active')) {
-          //   $('.owl-prev').hide();
-          // }
-          // else {
-          //   $('.next').hide();
-          // }
         }
       });
     });
-    console.log(window.innerWidth)
   </script>
 
   <script type="text/javascript">
